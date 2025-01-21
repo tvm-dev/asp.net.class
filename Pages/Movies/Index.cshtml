@@ -9,11 +9,18 @@
 <h1>Catálogo de Filmes</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Criar Novo</a>
 </p>
         <!-- Form para pesquisar filmes -->
         <form>
             <p>
+
+                    <select asp-for="MovieGenre" asp-items="Model.Genres">
+                        <option value="">Todos</option>
+
+                    </select>
+
+
                 Pesquisar Filmes: <input type="text" asp-for="SearchString"/>
                 <input type="submit" typeof="Filter" />
             </p>

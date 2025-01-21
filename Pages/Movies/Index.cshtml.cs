@@ -26,20 +26,38 @@ namespace ProjetoUnico.Pages.Movies
         //fim
         public async Task OnGetAsync()
         {
+            //código pra pesquisar por genero de filme:
 
-            //código pra pesquisar:
-             
+            IQueryable<string> genreQuery = from m in _context.Movie orderby m.Genre select m.Genre;
+
+            //código pra pesquisar por nome de filme:
+
             var movies = from m in _context.Movie select m;
 
+            //filtrando por titulo:
             if (!string.IsNullOrEmpty(SearchString))
             {
                 movies = movies.Where(s => s.Title!.Contains(SearchString));
             }
 
+            //filtrando por genero:
+            if (!string.IsNullOrEmpty(MovieGenre))
+            {
+                movies = movies.Where(x => x.Genre == MovieGenre); 
+            }
+
             //fim
-            
+
+
+            Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
+
             //Movie = await _context.Movie.ToListAsync();
             Movie = await movies.ToListAsync();
+            
+            
+            
+            
+            
             /*
              Colocar isso: "{SearchString?}" na linha 01, a direita de page da página index para pesquisar direto pela url do navegador.
              */
