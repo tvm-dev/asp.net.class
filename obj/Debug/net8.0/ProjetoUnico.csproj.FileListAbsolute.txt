@@ -261,3 +261,4 @@ C:\Users\senad\source\repos\ProjetoUnico\obj\Debug\net8.0\refint\ProjetoUnico.dl
 C:\Users\senad\source\repos\ProjetoUnico\obj\Debug\net8.0\ProjetoUnico.pdb
 C:\Users\senad\source\repos\ProjetoUnico\obj\Debug\net8.0\ProjetoUnico.genruntimeconfig.cache
 C:\Users\senad\source\repos\ProjetoUnico\obj\Debug\net8.0\ref\ProjetoUnico.dll
+C:\Users\senad\source\repos\ProjetoUnico\obj\Debug\net8.0\ProjetoUnico.sourcelink.json

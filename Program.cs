@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ProjetoUnico.Data;
+using ProjetoUnico.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,14 @@ builder.Services.AddDbContext<ProjetoUnicoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProjetoUnicoContext") ?? throw new InvalidOperationException("Connection string 'ProjetoUnicoContext' not found.")));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initilaize(services);
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
