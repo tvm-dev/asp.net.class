@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoUnico.Data;
 
@@ -11,9 +12,11 @@ using ProjetoUnico.Data;
 namespace ProjetoUnico.Migrations
 {
     [DbContext(typeof(ProjetoUnicoContext))]
-    partial class ProjetoUnicoContextModelSnapshot : ModelSnapshot
+    [Migration("20250122183933_new_DataAnnotations")]
+    partial class new_DataAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
